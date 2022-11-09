@@ -42,9 +42,6 @@ public class RNDoordeckSdkModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void showUnlock(boolean isNfc) {
-        if (isNfc == null) {
-            isNfc = true;
-        }
         ScanType type = ScanType.QR;
         NfcManager manager = (NfcManager) getReactApplicationContext().getSystemService(Context.NFC_SERVICE);
         NfcAdapter adapter = manager.getDefaultAdapter();
