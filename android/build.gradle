@@ -19,10 +19,10 @@ def safeExtGet(prop, fallback) {
     rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
 }
 
-def DEFAULT_COMPILE_SDK_VERSION = 28
-def DEFAULT_BUILD_TOOLS_VERSION = "29.0.2"
+def DEFAULT_COMPILE_SDK_VERSION = 33
+def DEFAULT_BUILD_TOOLS_VERSION = "33.0.1"
 def DEFAULT_MIN_SDK_VERSION = 23
-def DEFAULT_TARGET_SDK_VERSION = 28
+def DEFAULT_TARGET_SDK_VERSION = 33
 
 android {
   compileSdkVersion safeExtGet('compileSdkVersion', DEFAULT_COMPILE_SDK_VERSION)
@@ -59,7 +59,7 @@ allprojects {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.github.doordeck:doordeck-sdk-java:2.0.7'
+    implementation 'com.github.doordeck:doordeck-sdk-java:2.0.14'
     implementation 'com.google.guava:guava:28.0-android'
 }
 
