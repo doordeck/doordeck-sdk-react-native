@@ -1,9 +1,9 @@
 {
   "name": "@doordeck/react-native-doordeck-sdk",
   "title": "React Native Doordeck Sdk",
-  "version": "2.0.14",
+  "version": "2.0.15-14",
   "description": "React Native wrapper for the Doordeck SDK.",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,12 +22,12 @@
   "license": "Apache-2.0",
   "licenseFilename": "LICENSE",
   "peerDependencies": {
-    "react": "17.0.2",
-    "react-native": "^0.68.1"
+    "react": "18.2.0",
+    "react-native": "0.72.0"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-native": "^0.68.5"
+    "react": "18.2.0",
+    "react-native": "0.72.0"
   },
   "bugs": {
     "url": "https://github.com/doordeck/doordeck-sdk-react-native/issues"

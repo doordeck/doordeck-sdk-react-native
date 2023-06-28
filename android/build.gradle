@@ -9,6 +9,7 @@ buildscript {
         // Matches the RN Hello World template
         // https://github.com/facebook/react-native/blob/1e8f3b11027fe0a7514b4fc97d0798d3c64bc895/local-cli/templates/HelloWorld/android/build.gradle#L8
         classpath 'com.android.tools.build:gradle:4.0.1'
+        classpath 'com.facebook.react:react-native-gradle-plugin'
     }
 }
 
@@ -58,8 +59,8 @@ allprojects {
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-native:+'
-    implementation 'com.github.doordeck:doordeck-sdk-java:2.0.14'
+    compileOnly 'com.facebook.react:react-android'
+    implementation 'com.github.doordeck:doordeck-sdk-java:2.0.15-1'
     implementation 'com.google.guava:guava:28.0-android'
 }
 
@@ -102,12 +103,12 @@ afterEvaluate { project ->
     }
 
     task androidJavadocJar(type: Jar, dependsOn: androidJavadoc) {
-        classifier = 'javadoc'
+        archiveClassifier = 'javadoc'
         from androidJavadoc.destinationDir
     }
 
     task androidSourcesJar(type: Jar) {
-        classifier = 'sources'
+        archiveClassifier = 'sources'
         from android.sourceSets.main.java.srcDirs
         include '**/*.java'
     }
