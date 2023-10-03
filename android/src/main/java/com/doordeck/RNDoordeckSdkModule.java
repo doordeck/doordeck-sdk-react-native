@@ -41,7 +41,7 @@ public class RNDoordeckSdkModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void unlockWithUuid(String uuid) {
+    public void unlockWithUUID(String uuid) {
         Doordeck.INSTANCE.unlock(
                 getCurrentActivity(),
                 uuid,
