@@ -27,7 +27,7 @@ public class RNDoordeckSdkModule extends ReactContextBaseJavaModule {
     }
 
     /**
-     * * @param closeButton isn't used but the signature has to match with the
+     ** @param closeButton isn't used but the signature has to match with the
      * Javascript bridge and the iOS SDK
      **/
     @ReactMethod
