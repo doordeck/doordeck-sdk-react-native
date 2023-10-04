@@ -28,7 +28,7 @@ public class RNDoordeckSdkModule extends ReactContextBaseJavaModule {
 
     /**
      ** @param closeButton isn't used but the signature has to match with the
-     *                    Javascript bridge and the iOS SDK
+     * Javascript bridge and the iOS SDK
      **/
     @ReactMethod
     public void initDoordeck(String authToken, boolean darkMode, boolean closeButton) {
@@ -38,6 +38,40 @@ public class RNDoordeckSdkModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void updateToken(String authToken) {
         Doordeck.INSTANCE.updateToken(authToken, reactContext);
+    }
+
+    @ReactMethod
+    public void unlockWithUUID(String deviceId) {
+        Doordeck.INSTANCE.unlock(
+                getCurrentActivity(),
+                deviceId,
+                new UnlockCallback() {
+                    @Override
+                    public void unlockSuccess() {
+
+                    }
+
+                    @Override
+                    public void unlockFailed() {
+
+                    }
+
+                    @Override
+                    public void invalidAuthToken() {
+
+                    }
+
+                    @Override
+                    public void notAuthenticated() {
+
+                    }
+
+                    @Override
+                    public void verificationNeeded() {
+                        VerifyDeviceActivity.Companion.start(getReactApplicationContext());
+                    }
+                }
+        );
     }
 
     @ReactMethod
