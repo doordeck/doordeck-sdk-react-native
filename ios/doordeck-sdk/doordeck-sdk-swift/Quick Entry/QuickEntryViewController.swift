@@ -42,7 +42,7 @@ class QuickEntryViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUpQuickEntry()
@@ -51,6 +51,34 @@ class QuickEntryViewController: UIViewController {
     
     func setupUI() {
         view.backgroundColor = .doordeckPrimaryColour()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupNotifications()
+    }
+    
+    func setupNotifications() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self,
+                                       selector: #selector(appWillResignActive),
+                                       name: UIApplication.didEnterBackgroundNotification,
+                                       object: nil)
+        
+        notificationCenter.addObserver(self,
+                                       selector: #selector(deeplinkCheck(_:)),
+                                       name: .deeplinkSDKCheck,
+                                       object: nil)
+    }
+    
+    @objc func deeplinkCheck(_ notification: NSNotification) {
+        if let tileUUID = notification.object as? String {
+            lockDetected(tileUUID)
+        }
+    }
+    
+    @objc func appWillResignActive() {
+        self.dismiss(animated: true, completion: nil)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -84,7 +112,7 @@ extension QuickEntryViewController: quickEntryDelegate {
             addQRVC()
         }
     }
-
+    
     fileprivate func addNFCVC () {
         if #available(iOS 11, *) {
             let storyboard: UIStoryboard = UIStoryboard(name: quickStoryboard, bundle: Bundle(for: type(of: self)) )
@@ -98,7 +126,7 @@ extension QuickEntryViewController: quickEntryDelegate {
             
             UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: { [weak self] () -> Void in
                 self?.view.layoutIfNeeded()
-                }, completion: nil)
+            }, completion: nil)
             
         } else {
             addQRVC()
@@ -117,7 +145,7 @@ extension QuickEntryViewController: quickEntryDelegate {
         
         UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: { [weak self]  () -> Void in
             self?.view.layoutIfNeeded()
-            }, completion: nil)
+        }, completion: nil)
     }
     
     func lockDetected(_ UUID: String) {
