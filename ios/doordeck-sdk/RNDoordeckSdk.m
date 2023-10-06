@@ -12,4 +12,6 @@
 }
 RCT_EXTERN_METHOD(initDoordeck:(NSString *)auth darkMode:(BOOL)darkMode closeButton:(BOOL)closeButton)
 RCT_EXTERN_METHOD(showUnlock:(BOOL)isNfc)
+RCT_EXTERN_METHOD(unlockTileID:(NSString *)tileID)
+
 @end

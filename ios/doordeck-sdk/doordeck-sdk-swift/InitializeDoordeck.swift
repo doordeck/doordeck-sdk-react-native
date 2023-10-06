@@ -113,6 +113,13 @@ public class Doordeck {
         darkModeActive(darkMode)
     }
     
+    /// This method can be used to push tile UUID to the SDK to process
+    ///
+    /// - Parameters:
+    ///   - tileID: Tile UUID is UUID for a tile from a deeplink or QR or background NFC
+    public func unlockTileID (_ tileID: String) {
+        NotificationCenter.default.post(name: .deeplinkSDKCheck, object: tileID)
+    }
     
     /// Dark mode
     ///
@@ -144,7 +151,7 @@ public class Doordeck {
     ///   - readerType: Reader type can be specified to .nfc or .QR Or automatic
     ///   - success: This is called on success of device unlock
     ///   - fail: This is called on fail device unlock
-    public func showUnlockScreen(_ readerType: ReaderType,
+    public func showUnlockScreen(_ readerType: ReaderType = ReaderType.automatic,
                                  success:@escaping () -> Void,
                                  fail: @escaping () -> Void)  {
         
