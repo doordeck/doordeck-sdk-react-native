@@ -27,7 +27,15 @@
   },
   "devDependencies": {
     "react": "18.2.0",
-    "react-native": "0.72.0"
+    "react-native": "0.74.3"
+  },
+  "overrides": {
+    "react": {
+      "ws": "^8.18.0"
+    },
+    "react-native": {
+      "ws": "^8.18.0"
+    }
   },
   "bugs": {
     "url": "https://github.com/doordeck/doordeck-sdk-react-native/issues"
