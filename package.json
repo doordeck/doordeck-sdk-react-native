@@ -41,5 +41,5 @@
     "url": "https://github.com/doordeck/doordeck-sdk-react-native/issues"
   },
   "homepage": "https://doordeck.com",
-  "dependencies": {}
+  "packageManager": "yarn@3.6.4"
 }
