@@ -1,7 +1,7 @@
 {
   "name": "@doordeck/react-native-doordeck-sdk",
   "title": "React Native Doordeck Sdk",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "React Native wrapper for the Doordeck SDK.",
   "main": "index.ts",
   "scripts": {
@@ -40,6 +40,5 @@
   "bugs": {
     "url": "https://github.com/doordeck/doordeck-sdk-react-native/issues"
   },
-  "homepage": "https://doordeck.com",
-  "packageManager": "yarn@3.6.4"
+  "homepage": "https://doordeck.com"
 }
