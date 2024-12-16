@@ -68,7 +68,7 @@ public class RNDoordeckSdkModule extends ReactContextBaseJavaModule {
 
                     @Override
                     public void verificationNeeded() {
-                        VerifyDeviceActivity.Companion.start(getReactApplicationContext());
+                        VerifyDeviceActivity.Companion.start(getReactApplicationContext(), false);
                     }
                 }
         );
@@ -105,7 +105,7 @@ public class RNDoordeckSdkModule extends ReactContextBaseJavaModule {
 
             @Override
             public void verificationNeeded() {
-                VerifyDeviceActivity.Companion.start(getReactApplicationContext());
+                VerifyDeviceActivity.Companion.start(getReactApplicationContext(), false);
             }
         });
     }
